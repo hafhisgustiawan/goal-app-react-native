@@ -21,6 +21,7 @@ const App = () => {
         {goalList.length > 0 ? (
           <FlatList
             style={{ width: '100%' }}
+            // horizontal={true}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.goalScrollView}
             data={goalList}
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
   },
   goalScrollView: {
     gap: 12,
+    // backgroundColor: 'red',
   },
 });
 

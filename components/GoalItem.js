@@ -7,7 +7,13 @@ const GoalItem = ({ item, onDeleteGoal }) => {
       onPress={onDeleteGoal.bind(this, item)} //ini ada manggil func pakai bind, fungsi bind ini inisialisasi function sebelum dipanggil, sebenarnya bisa panggil dia pakai function juga sih, cuma biar keren aja
       style={({ pressed }) => pressed && styles.goalItemPress}
     >
-      <Text style={[styles.goalItem, styles.colorWhite]}>{item}</Text>
+      <Text
+        style={[styles.goalItem, styles.colorWhite]}
+        // ellipsizeMode="tail"
+        // numberOfLines={1}
+      >
+        {item}
+      </Text>
     </Pressable>
   );
 };
@@ -17,8 +23,8 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   goalItem: {
+    // width: 100,
     padding: 16,
-    flexDirection: 'row',
     textAlign: 'center',
     backgroundColor: 'blue',
     borderRadius: 6,
