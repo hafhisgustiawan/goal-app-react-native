@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     // alignItems: 'stretch', //ini untuk cross axis nya memenuhi space yang ada
     // height: '100%', //ini untuk buat view nya jadi sebesar ukuran layar, tapi better pake flex
-    flex: 1, //jadi disini flex akan bernilai full jika cuma 1 flex doang, jika banyak bisa seperti flex basis bernilai 1 atau 2 atau 3, nantinya nilainya adalah rata2 nya, kayak flex-basis
+    flex: 1, //ini untuk main axis nya memenuhi space yang ada
     marginTop: StatusBar.currentHeight || 0,
   },
   colorWhite: {
