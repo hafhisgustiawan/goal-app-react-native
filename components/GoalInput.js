@@ -1,19 +1,74 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { View, Text, StyleSheet, TextInput, Pressable } from 'react-native';
 
-const GoalInput = () => {
+const GoalInput = ({ setGoalList }) => {
+  const [goalInput, setGoalInput] = useState('');
+
+  const goalInputHandler = (input) => {
+    setGoalInput(input);
+  };
+
+  const addGoalHandler = () => {
+    if (!goalInput) return;
+    setGoalList((prev) => [...prev, goalInput]);
+    setGoalInput('');
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>GoalInput</Text>
+    <View style={styles.inputContainer}>
+      <TextInput
+        style={styles.textInput}
+        placeholder="Your course goal"
+        onChangeText={goalInputHandler}
+        defaultValue={goalInput}
+      />
+      {/* <Button title="Add Goal" /> */}
+      {/* sebenarnya ada touchable component kayak touchable | touchablehighligh | touchableopacity, tapi semua itu akan segera di ganti sama pressable */}
+      <Pressable onPress={addGoalHandler} disabled={!goalInput}>
+        <View
+          style={[
+            styles.buttonView,
+            { backgroundColor: !goalInput ? '#ccc' : 'blue' },
+          ]}
+        >
+          {/* <ActivityIndicator /> */}
+          <Text style={styles.colorWhite}>Add Goal</Text>
+        </View>
+      </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  inputContainer: {
     flex: 1,
-    justifyContent: 'center',
+    // maxWidth: '100%',
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between', //kasih spasi antar komponen, start dan end nya gak termasuk, pake space-around kalo itu
+    marginBottom: 24,
+    borderColor: '#cccccc',
+    borderBottomWidth: 1,
+    gap: 12,
+  },
+  textInput: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#cccccc',
+    paddingVertical: 16,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    marginRight: 8,
+  },
+  colorWhite: {
+    color: 'white',
+  },
+  buttonView: {
+    flexDirection: 'row',
+    backgroundColor: 'blue',
+    padding: 16,
+    borderRadius: 6,
+    gap: 6,
   },
 });
 
