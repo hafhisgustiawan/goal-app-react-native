@@ -5,6 +5,9 @@ const GoalInput = ({ setGoalList }) => {
   const [goalInput, setGoalInput] = useState('');
 
   const goalInputHandler = (input) => {
+    /**
+     * Parameter input disini akan langsung bertipe string, beda dg di web biasanya akan return InputEvent (biasanya a.target.value())
+     */
     setGoalInput(input);
   };
 
@@ -25,6 +28,9 @@ const GoalInput = ({ setGoalList }) => {
       {/* <Button title="Add Goal" /> */}
       {/* sebenarnya ada touchable component kayak touchable | touchablehighligh | touchableopacity, tapi semua itu akan segera di ganti sama pressable */}
       <Pressable onPress={addGoalHandler} disabled={!goalInput}>
+        {/**
+         * kita bisa compound style, jadi yang paling ujung akan replace yang di awal, hanya assign aja bukan overwrite semuanya
+         */}
         <View
           style={[
             styles.buttonView,
