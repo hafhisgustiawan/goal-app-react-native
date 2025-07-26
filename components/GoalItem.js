@@ -9,6 +9,9 @@ const GoalItem = ({ item, onDeleteGoal }) => {
     >
       <Text
         style={[styles.goalItem, styles.colorWhite]}
+        /**
+         * Ini untuk membuat titik2 di ujung dan max line nya cuma 1
+         */
         // ellipsizeMode="tail"
         // numberOfLines={1}
       >
